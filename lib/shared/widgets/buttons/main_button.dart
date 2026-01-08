@@ -33,6 +33,7 @@ class MainButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      height: 38,
       width: expand ? double.infinity : null,
       child: ElevatedButton(
         onPressed: onPressed,
@@ -59,7 +60,7 @@ class MainButton extends StatelessWidget {
           child: Text(
             text,
             textAlign: TextAlign.center,
-            style: AppTextStyles.smallBold,
+            style: AppTextStyles.smallBold.copyWith(color: AppColors.white),
           ),
         ),
       ),

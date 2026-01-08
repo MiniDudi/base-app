@@ -48,10 +48,14 @@ class _StateMainTextInput extends State<MainTextInput> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (widget.title != null) ...[
-          Text(
-            widget.title!,
-            style: AppTextStyles.mediumNormal,
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Text(
+              widget.title!,
+              style: AppTextStyles.mediumNormal,
+            ),
           ),
+          const SizedBox(height: 5),
         ],
         FormField<String>(
           validator: widget.validator ??
@@ -115,13 +119,13 @@ class _StateMainTextInput extends State<MainTextInput> {
                         minHeight: 0,
                       ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(20),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(20),
                         borderSide: const BorderSide(
                           color: AppColors.gray1,
-                          width: 1,
+                          width: 2,
                         ),
                       ),
                     ),

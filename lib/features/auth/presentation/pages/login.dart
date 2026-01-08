@@ -1,7 +1,10 @@
 import 'package:base_app/shared/constants/app_colors.dart';
 import 'package:base_app/shared/constants/app_text_styles.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../shared/constants/app_images.dart';
 import '../../../../shared/widgets/buttons/main_button.dart';
 import '../../../../shared/widgets/inputs/main_text_input.dart';
 
@@ -21,18 +24,28 @@ class _StateLoginPage extends State<LoginPage> {
   }
 
   Widget _buildPage(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        _buildTopImage(context),
-        _buildMainText(context),
-        _buildInputGroup(context),
-        _buildForgetPasswordText(context),
-        _buildLoginButton(context),
-        _buildRegisterLink(context),
-        _buildSocialLogin(context),
-      ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 110),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            _buildTopImage(context),
+            const SizedBox(height: 40),
+            _buildMainText(context),
+            const SizedBox(height: 40),
+            _buildInputGroup(context),
+            const SizedBox(height: 8),
+            _buildForgetPasswordText(context),
+            const SizedBox(height: 20),
+            _buildLoginButton(context),
+            const SizedBox(height: 5),
+            _buildRegisterLink(context),
+            const SizedBox(height: 104),
+            _buildSocialLogin(context),
+          ],
+        ),
+      ),
     );
   }
 
@@ -41,7 +54,7 @@ class _StateLoginPage extends State<LoginPage> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CircleAvatar(
-          radius: 40,
+          radius: 80,
           backgroundColor: AppColors.gray1,
         ),
       ],
@@ -50,7 +63,13 @@ class _StateLoginPage extends State<LoginPage> {
 
   Widget _buildMainText(BuildContext context) {
     return Row(
-      children: [Text('Bem-vindo!')],
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          'Bem-vindo!',
+          style: AppTextStyles.h4,
+        )
+      ],
     );
   }
 
@@ -74,41 +93,59 @@ class _StateLoginPage extends State<LoginPage> {
           isRequired: true,
           isPassword: true,
         ),
+        const SizedBox(height: 8),
       ],
     );
   }
 
   Widget _buildForgetPasswordText(BuildContext context) {
-    return Row(
-      children: [Text('Esqueceu a senha?')],
+    return Padding(
+      padding: const EdgeInsets.only(left: 20),
+      child: Row(
+        children: [
+          Text(
+            'Esqueceu a senha?',
+            style: AppTextStyles.smallNormal,
+          )
+        ],
+      ),
     );
   }
 
   Widget _buildLoginButton(BuildContext context) {
-    return MainButton(
-      text: 'Login',
-      isLoading: false,
-      expand: true,
-      enable: true,
-      onPressed: () {},
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 80),
+      child: MainButton(
+        text: 'Login',
+        isLoading: false,
+        expand: false,
+        enable: true,
+        onPressed: () {},
+      ),
     );
   }
 
   Widget _buildRegisterLink(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         RichText(
           text: TextSpan(
             children: [
               TextSpan(
                 text: 'Não possui uma conta? ',
-                style: AppTextStyles.mediumNormal,
+                style: AppTextStyles.smallNormal,
               ),
               TextSpan(
                 text: 'Registre-se agora',
-                style: AppTextStyles.mediumNormal.copyWith(
-                  color: AppColors.primary,
+                style: AppTextStyles.smallNormal.copyWith(
+                  color: AppColors.blue,
                 ),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    context.goNamed('register');
+                  },
               ),
             ],
           ),
@@ -119,22 +156,52 @@ class _StateLoginPage extends State<LoginPage> {
 
   Widget _buildSocialLogin(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Row(
-          children: [Text('Ou logar com')],
+        Text(
+          'Ou logar com',
+          style: AppTextStyles.smallNormal,
         ),
+        const SizedBox(height: 7),
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircleAvatar(
-              radius: 10,
-              backgroundColor: AppColors.gray1,
+            Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    blurRadius: 8,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: CircleAvatar(
+                radius: 30,
+                backgroundImage: AssetImage(AppImages.facebookLogo),
+              ),
             ),
-            CircleAvatar(
-              radius: 10,
-              backgroundColor: AppColors.gray1,
-            )
+            const SizedBox(width: 21),
+            Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    blurRadius: 8,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: CircleAvatar(
+                radius: 30,
+                backgroundImage: AssetImage(AppImages.googleLogo),
+              ),
+            ),
           ],
-        )
+        ),
       ],
     );
   }

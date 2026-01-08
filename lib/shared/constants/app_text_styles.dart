@@ -6,7 +6,35 @@ import 'app_colors.dart';
 class AppTextStyles {
   const AppTextStyles._();
 
+  static const TextStyle h1 = TextStyle(
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w700,
+    color: AppColors.black,
+    fontSize: 40,
+  );
+
+  static const TextStyle h4 = TextStyle(
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w700,
+    color: AppColors.black,
+    fontSize: 32,
+  );
+
   static const TextStyle mediumNormal = TextStyle(
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w400,
+    color: AppColors.black,
+    fontSize: 14,
+  );
+
+  static const TextStyle mediumBold = TextStyle(
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w700,
+    color: AppColors.black,
+    fontSize: 14,
+  );
+
+  static const TextStyle smallNormal = TextStyle(
     fontFamily: 'Inter',
     fontWeight: FontWeight.w400,
     color: AppColors.black,
@@ -17,6 +45,6 @@ class AppTextStyles {
     fontFamily: 'Inter',
     fontWeight: FontWeight.w700,
     color: AppColors.black,
-    fontSize: 10,
+    fontSize: 12,
   );
 }

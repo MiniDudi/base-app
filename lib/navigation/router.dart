@@ -1,3 +1,4 @@
+import 'package:base_app/features/auth/presentation/pages/register.dart';
 import 'package:base_app/navigation/router_guard.dart';
 import 'package:go_router/go_router.dart';
 
@@ -9,9 +10,14 @@ class AppRouter {
     redirect: RouteGuard.redirect,
     routes: [
       GoRoute(
-        path: '/login',
+        path: '/',
         name: 'login',
         builder: (context, state) => const LoginPage(),
+      ),
+      GoRoute(
+        path: '/register',
+        name: 'register',
+        builder: (context, state) => const RegisterPage(),
       ),
     ],
   );
