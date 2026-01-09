@@ -1,9 +1,10 @@
 import 'package:base_app/shared/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../constants/app_colors.dart';
+import '../../utils/widget_utils/main_button_utils.dart';
 
-enum ButtonVariant { primary, secondary }
+enum ButtonVariant { primary, secondary, gray }
 
 enum ButtonSize { big, small }
 
@@ -14,6 +15,8 @@ class MainButton extends StatelessWidget {
     required this.isLoading,
     required this.expand,
     required this.enable,
+    this.suffixIcon,
+    this.prefixIcon,
     this.onPressed,
     this.variant = ButtonVariant.primary,
     this.size = ButtonSize.big,
@@ -30,8 +33,15 @@ class MainButton extends StatelessWidget {
   final bool expand;
   final bool enable;
 
+  final String? suffixIcon;
+  final String? prefixIcon;
+
   @override
   Widget build(BuildContext context) {
+    final buttonColor = MainButtonUtils.getButtonBackgroundColor(variant);
+    final textColor = MainButtonUtils.getButtonTextColor(variant);
+    final iconColor = MainButtonUtils.getButtonIconColor(variant);
+
     return SizedBox(
       height: 38,
       width: expand ? double.infinity : null,
@@ -47,7 +57,7 @@ class MainButton extends StatelessWidget {
             // if (!enable) {
             //   return disableButtonColor;
             // }
-            return AppColors.primary;
+            return buttonColor;
           }),
           shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -55,13 +65,35 @@ class MainButton extends StatelessWidget {
           elevation: WidgetStateProperty.resolveWith<double>(
             (states) => states.contains(WidgetState.hovered) ? 3 : 0,
           ),
-        ),
-        child: Center(
-          child: Text(
-            text,
-            textAlign: TextAlign.center,
-            style: AppTextStyles.smallBold.copyWith(color: AppColors.white),
+          padding: WidgetStateProperty.all(
+            const EdgeInsets.symmetric(horizontal: 13),
           ),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (prefixIcon != null) ...[
+              SvgPicture.asset(
+                prefixIcon!,
+                colorFilter: ColorFilter.mode(iconColor, BlendMode.srcIn),
+              ),
+              const SizedBox(width: 5),
+            ],
+            Text(
+              text,
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              style: AppTextStyles.smallBold.copyWith(color: textColor),
+            ),
+            if (suffixIcon != null) ...[
+              const SizedBox(width: 5),
+              SvgPicture.asset(
+                suffixIcon!,
+                colorFilter: ColorFilter.mode(iconColor, BlendMode.srcIn),
+              ),
+            ],
+          ],
         ),
       ),
     );

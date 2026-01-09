@@ -1,8 +1,10 @@
 import 'package:base_app/shared/constants/app_colors.dart';
+import 'package:base_app/shared/constants/app_images.dart';
 import 'package:base_app/shared/constants/app_text_styles.dart';
 import 'package:base_app/shared/widgets/buttons/main_button.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../shared/widgets/inputs/main_checkbox.dart';
 import '../../../../shared/widgets/inputs/main_text_input.dart';
@@ -25,13 +27,13 @@ class _StateRegisterPage extends State<RegisterPage> {
 
   Widget _buildPage(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 25,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 55),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          _buildReturnButton(context),
+          const SizedBox(height: 73),
           _buildTopTextGroup(context),
           const SizedBox(height: 29),
           _buildInputGroup(context),
@@ -40,6 +42,23 @@ class _StateRegisterPage extends State<RegisterPage> {
           const SizedBox(height: 20),
           _buildMainButton(context),
         ],
+      ),
+    );
+  }
+
+  Widget _buildReturnButton(BuildContext context) {
+    return SizedBox(
+      width: 85,
+      child: MainButton(
+        text: 'voltar',
+        prefixIcon: AppImages.arrowLeftSVG,
+        variant: ButtonVariant.gray,
+        isLoading: false,
+        expand: false,
+        enable: true,
+        onPressed: () {
+          context.pop();
+        },
       ),
     );
   }
