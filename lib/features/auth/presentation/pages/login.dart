@@ -1,3 +1,4 @@
+import 'package:base_app/features/auth/presentation/pages/forgot_password.dart';
 import 'package:base_app/shared/constants/app_colors.dart';
 import 'package:base_app/shared/constants/app_text_styles.dart';
 import 'package:flutter/gestures.dart';
@@ -53,24 +54,14 @@ class _StateLoginPage extends State<LoginPage> {
   Widget _buildTopImage(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        CircleAvatar(
-          radius: 80,
-          backgroundColor: AppColors.gray1,
-        ),
-      ],
+      children: [CircleAvatar(radius: 80, backgroundColor: AppColors.gray1)],
     );
   }
 
   Widget _buildMainText(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          'Bem-vindo!',
-          style: AppTextStyles.h4,
-        )
-      ],
+      children: [Text('Bem-vindo!', style: AppTextStyles.h4)],
     );
   }
 
@@ -104,10 +95,12 @@ class _StateLoginPage extends State<LoginPage> {
       padding: const EdgeInsets.only(left: 20),
       child: Row(
         children: [
-          Text(
-            'Esqueceu a senha?',
-            style: AppTextStyles.smallNormal,
-          )
+          GestureDetector(
+            onTap: () {
+              context.goNamed(ForgotPasswordPage.name);
+            },
+            child: Text('Esqueceu a senha?', style: AppTextStyles.smallNormal),
+          ),
         ],
       ),
     );
@@ -150,7 +143,7 @@ class _StateLoginPage extends State<LoginPage> {
               ),
             ],
           ),
-        )
+        ),
       ],
     );
   }
@@ -160,10 +153,7 @@ class _StateLoginPage extends State<LoginPage> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text(
-          'Ou logar com',
-          style: AppTextStyles.smallNormal,
-        ),
+        Text('Ou logar com', style: AppTextStyles.smallNormal),
         const SizedBox(height: 7),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -2,6 +2,7 @@ import 'package:base_app/features/auth/presentation/pages/register.dart';
 import 'package:base_app/navigation/router_guard.dart';
 import 'package:go_router/go_router.dart';
 
+import '../features/auth/presentation/pages/forgot_password.dart';
 import '../features/auth/presentation/pages/login.dart';
 
 class AppRouter {
@@ -14,6 +15,11 @@ class AppRouter {
         name: 'login',
         builder: (context, state) => const LoginPage(),
         routes: [
+          GoRoute(
+            path: '/forgot-password',
+            name: ForgotPasswordPage.name,
+            builder: (context, state) => const ForgotPasswordPage(),
+          ),
           GoRoute(
             path: '/register',
             name: 'register',
