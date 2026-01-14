@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../features/auth/presentation/pages/forgot_password.dart';
 import '../features/auth/presentation/pages/login.dart';
+import '../features/home/presentation/pages/home_page.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
@@ -26,6 +27,11 @@ class AppRouter {
             builder: (context, state) => const RegisterPage(),
           ),
         ],
+      ),
+      GoRoute(
+        path: '/home',
+        name: HomePage.name,
+        builder: (context, state) => const HomePage(),
       ),
     ],
   );

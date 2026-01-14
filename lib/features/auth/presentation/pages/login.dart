@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../shared/constants/app_images.dart';
 import '../../../../shared/widgets/buttons/main_button.dart';
 import '../../../../shared/widgets/inputs/main_text_input.dart';
+import '../../../home/presentation/pages/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -114,7 +115,9 @@ class _StateLoginPage extends State<LoginPage> {
         isLoading: false,
         expand: false,
         enable: true,
-        onPressed: () {},
+        onPressed: () {
+          context.goNamed(HomePage.name);
+        },
       ),
     );
   }

@@ -6,6 +6,13 @@ import 'app_colors.dart';
 class AppTextStyles {
   const AppTextStyles._();
 
+  static const TextStyle footerText = TextStyle(
+    fontSize: 16,
+    fontFamily: 'Inter',
+    color: AppColors.white,
+    fontWeight: FontWeight.bold,
+  );
+
   static const TextStyle h1 = TextStyle(
     fontFamily: 'Inter',
     fontWeight: FontWeight.w700,
