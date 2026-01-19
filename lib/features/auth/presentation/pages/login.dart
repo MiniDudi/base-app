@@ -13,6 +13,8 @@ import '../../../home/presentation/pages/home_page.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
+  static const String name = 'LoginPage';
+
   @override
   State<StatefulWidget> createState() => _StateLoginPage();
 }

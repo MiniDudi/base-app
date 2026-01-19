@@ -1,3 +1,4 @@
+import 'package:base_app/features/auth/presentation/pages/email_sended.dart';
 import 'package:base_app/shared/constants/app_colors.dart';
 import 'package:base_app/shared/widgets/buttons/main_button.dart';
 import 'package:flutter/material.dart';
@@ -95,6 +96,9 @@ class _StateForgotPasswordPage extends State<ForgotPasswordPage> {
         isLoading: false,
         expand: false,
         enable: true,
+        onPressed: () {
+          context.goNamed(EmailSentPage.name);
+        },
       ),
     );
   }
