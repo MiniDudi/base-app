@@ -27,6 +27,20 @@ class AppTextStyles {
     fontSize: 32,
   );
 
+  static const TextStyle h5 = TextStyle(
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w700,
+    color: AppColors.black,
+    fontSize: 24,
+  );
+
+  static const TextStyle h6 = TextStyle(
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w600,
+    color: AppColors.black,
+    fontSize: 20,
+  );
+
   static const TextStyle mediumNormal = TextStyle(
     fontFamily: 'Inter',
     fontWeight: FontWeight.w400,

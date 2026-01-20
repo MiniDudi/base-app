@@ -20,42 +20,43 @@ class _StateBaseAppNavigationFooter extends State<BaseAppNavigationFooter> {
     });
   }
 
+  Widget _icon(String asset) {
+    return Padding(
+      padding: EdgeInsets.zero,
+      child: SvgPicture.asset(asset, fit: BoxFit.contain),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 100,
-      child: Theme(
-        data: Theme.of(context).copyWith(
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-        ),
-        child: BottomNavigationBar(
-          iconSize: 35,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Center(child: SvgPicture.asset(AppImages.homeIconSVG)),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Center(child: SvgPicture.asset(AppImages.messageIconSVG)),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Center(child: SvgPicture.asset(AppImages.profileIconSVG)),
-              label: '',
-            ),
-          ],
-          backgroundColor: AppColors.primary,
-          currentIndex: _selectedIndex,
-          selectedItemColor: AppColors.white,
-          unselectedItemColor: AppColors.white.withOpacity(0.7),
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          selectedIconTheme: IconThemeData(size: 35),
-          unselectedIconTheme: IconThemeData(size: 35),
-          type: BottomNavigationBarType.fixed,
-          onTap: _onItemTapped,
-        ),
+    return Theme(
+      data: Theme.of(context).copyWith(
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+      ),
+      child: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: _icon(AppImages.homeIconSVG),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: _icon(AppImages.messageIconSVG),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: _icon(AppImages.profileIconSVG),
+            label: '',
+          ),
+        ],
+        backgroundColor: AppColors.primary,
+        currentIndex: _selectedIndex,
+        selectedItemColor: AppColors.white,
+        unselectedItemColor: AppColors.white.withOpacity(0.7),
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        type: BottomNavigationBarType.fixed,
+        onTap: _onItemTapped,
       ),
     );
   }
