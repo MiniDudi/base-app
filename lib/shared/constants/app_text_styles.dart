@@ -41,6 +41,20 @@ class AppTextStyles {
     fontSize: 20,
   );
 
+  static const TextStyle bigNormal = TextStyle(
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w400,
+    color: AppColors.black,
+    fontSize: 16,
+  );
+
+  static const TextStyle bigBold = TextStyle(
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w700,
+    color: AppColors.black,
+    fontSize: 16,
+  );
+
   static const TextStyle mediumNormal = TextStyle(
     fontFamily: 'Inter',
     fontWeight: FontWeight.w400,

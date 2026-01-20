@@ -11,6 +11,9 @@ class AppImages {
   static const String profileIconSVG = 'assets/images/icons/profile_icon.svg';
   static const String messageIconSVG = 'assets/images/icons/message_icon.svg';
   static const String homeIconSVG = 'assets/images/icons/home_icon.svg';
+  static const String userIconSVG = 'assets/images/icons/user_icon.svg';
+  static const String settingsIconSVG = 'assets/images/icons/settings_icon.svg';
+  static const String arrowLeftIconSVG = 'assets/images/icons/arrow-left.svg';
 
   // Brand icons
   static const String facebookLogo = 'assets/images/facebook_logo.jpg';
