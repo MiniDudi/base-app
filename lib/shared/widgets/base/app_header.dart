@@ -2,6 +2,7 @@ import 'package:base_app/shared/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/app_colors.dart';
+import '../dialogs/app_header_dialog.dart';
 
 class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   const BaseAppBar({
@@ -30,7 +31,17 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
               title,
               style: AppTextStyles.h5.copyWith(color: AppColors.white),
             ),
-            Icon(Icons.list, size: 50, color: AppColors.white),
+            GestureDetector(
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AppHeaderDialog(userName: 'teste');
+                  },
+                );
+              },
+              child: Icon(Icons.list, size: 50, color: AppColors.white),
+            ),
           ],
         ),
       ),

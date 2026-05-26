@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../utils/widget_utils/main_button_utils.dart';
 
-enum ButtonVariant { primary, secondary, gray }
+enum ButtonVariant { primary, secondary, gray, white }
 
 enum ButtonSize { big, small }
 

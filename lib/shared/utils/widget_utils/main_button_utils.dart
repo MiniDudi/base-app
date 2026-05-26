@@ -13,6 +13,8 @@ class MainButtonUtils {
         return AppColors.primary;
       case ButtonVariant.gray:
         return AppColors.gray1;
+      case ButtonVariant.white:
+        return AppColors.white;
     }
   }
 
@@ -24,6 +26,8 @@ class MainButtonUtils {
         return AppColors.white;
       case ButtonVariant.gray:
         return AppColors.black;
+      case ButtonVariant.white:
+        return AppColors.black;
     }
   }
 
@@ -34,6 +38,8 @@ class MainButtonUtils {
       case ButtonVariant.secondary:
         return AppColors.white;
       case ButtonVariant.gray:
+        return AppColors.black;
+      case ButtonVariant.white:
         return AppColors.black;
     }
   }

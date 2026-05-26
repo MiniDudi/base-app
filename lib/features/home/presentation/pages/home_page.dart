@@ -29,7 +29,10 @@ class _StateHomePage extends State<HomePage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [AddDataGroup(onTap: () {})],
+        children: [
+          // AQUI SÓ TEM UM WIDGET DE "ADD" PARA ADICIONAR UM FOLDER
+          AddDataGroup(onTap: () {}),
+        ],
       ),
     );
   }
