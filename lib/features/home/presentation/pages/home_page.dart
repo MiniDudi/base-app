@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../shared/widgets/base/app_footer.dart';
 import '../../../../shared/widgets/base/app_header.dart';
 import '../widgets/add_data_group.dart';
+import '../widgets/folder_data_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,6 +15,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _StateHomePage extends State<HomePage> {
+  final folderQty = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,8 +33,12 @@ class _StateHomePage extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // AQUI SÓ TEM UM WIDGET DE "ADD" PARA ADICIONAR UM FOLDER
-          AddDataGroup(onTap: () {}),
+          if (folderQty == 0) ...[
+            AddDataGroup(onTap: () {}),
+          ] else ...[
+            FolderDataCard(),
+            AddDataGroup(onTap: () {}),
+          ],
         ],
       ),
     );

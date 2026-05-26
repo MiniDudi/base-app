@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../shared/constants/app_colors.dart';
 
+enum AddDataType { big, small }
+
 class AddDataGroup extends StatelessWidget {
   const AddDataGroup({super.key, required this.onTap});
 
