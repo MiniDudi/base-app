@@ -1,4 +1,5 @@
 import 'package:base_app/features/auth/presentation/pages/register.dart';
+import 'package:base_app/features/home/presentation/pages/new_folder_page.dart';
 import 'package:base_app/navigation/router_guard.dart';
 import 'package:go_router/go_router.dart';
 
@@ -40,6 +41,13 @@ class AppRouter {
         path: '/home',
         name: HomePage.name,
         builder: (context, state) => const HomePage(),
+        routes: [
+          GoRoute(
+            path: '/new-folder',
+            name: NewFolderPage.name,
+            builder: (context, state) => const NewFolderPage(),
+          ),
+        ],
       ),
     ],
   );

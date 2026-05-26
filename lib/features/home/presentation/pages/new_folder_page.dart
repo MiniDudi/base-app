@@ -9,6 +9,8 @@ import '../../../../shared/widgets/inputs/main_text_input.dart';
 class NewFolderPage extends StatefulWidget {
   const NewFolderPage({super.key});
 
+  static const String name = 'NewFolderPage';
+
   @override
   State<NewFolderPage> createState() => _NewFolderPageState();
 }
