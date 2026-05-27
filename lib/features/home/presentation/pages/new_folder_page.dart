@@ -36,35 +36,43 @@ class _NewFolderPageState extends State<NewFolderPage> {
 
   Widget _buildPage(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 33, vertical: 55),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _buildReturnButton(context),
+          const SizedBox(height: 29),
           _buildMainText(context),
           _buildFirstInputs(context),
           _buildVisibilityOptions(context),
           _buildLastInputs(context),
+          const SizedBox(height: 166),
+          _buildMainButton(context),
         ],
       ),
     );
   }
 
   Widget _buildReturnButton(BuildContext context) {
-    return SizedBox(
-      width: 85,
-      child: MainButton(
-        text: 'voltar',
-        prefixIcon: AppImages.arrowLeftSVG,
-        variant: ButtonVariant.gray,
-        isLoading: false,
-        expand: false,
-        enable: true,
-        onPressed: () {
-          context.pop();
-        },
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        SizedBox(
+          width: 85,
+          child: MainButton(
+            text: 'voltar',
+            prefixIcon: AppImages.arrowLeftSVG,
+            variant: ButtonVariant.gray,
+            isLoading: false,
+            expand: false,
+            enable: true,
+            onPressed: () {
+              context.pop();
+            },
+          ),
+        ),
+      ],
     );
   }
 
@@ -109,11 +117,12 @@ class _NewFolderPageState extends State<NewFolderPage> {
 
   Widget _buildMainButton(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         MainButton(
           text: 'Configurações',
           prefixIcon: AppImages.settingsIconSVG,
-          variant: ButtonVariant.white,
+          variant: ButtonVariant.primary,
           isLoading: false,
           expand: false,
           enable: true,

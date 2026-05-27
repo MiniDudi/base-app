@@ -3,17 +3,27 @@ import 'package:flutter/material.dart';
 
 import '../../../../shared/constants/app_colors.dart';
 
-enum AddDataType { big, small }
+enum AddDataSize { big, small }
+
+enum AddDataType { folder, data }
 
 class AddDataGroup extends StatelessWidget {
-  const AddDataGroup({super.key, required this.onTap});
+  const AddDataGroup({
+    super.key,
+    required this.onTap,
+    required this.type,
+    required this.size,
+  });
+
+  final AddDataType type;
+  final AddDataSize size;
 
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Column(
         // mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
