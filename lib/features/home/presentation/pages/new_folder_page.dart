@@ -5,6 +5,7 @@ import '../../../../shared/constants/app_images.dart';
 import '../../../../shared/constants/app_text_styles.dart';
 import '../../../../shared/widgets/buttons/main_button.dart';
 import '../../../../shared/widgets/inputs/main_text_input.dart';
+import '../widgets/folder_visibility_check.dart';
 
 class NewFolderPage extends StatefulWidget {
   const NewFolderPage({super.key});
@@ -89,7 +90,7 @@ class _NewFolderPageState extends State<NewFolderPage> {
   }
 
   Widget _buildVisibilityOptions(BuildContext context) {
-    return Container();
+    return FolderVisibilityCheck();
   }
 
   Widget _buildLastInputs(BuildContext context) {

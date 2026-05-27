@@ -39,10 +39,20 @@ class _StateFolderVisibilityCheck extends State<FolderVisibilityCheck> {
         }
       },
       child: Container(
-        color: !isPrivateChecked && !isPublicChecked
-            ? AppColors.white
-            : AppColors.primary,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+        decoration: BoxDecoration(
+          color: !isPrivateChecked && !isPublicChecked
+              ? AppColors.white
+              : AppColors.primary,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withValues(alpha: 0.5),
+              spreadRadius: 1,
+              blurRadius: 5,
+              offset: Offset(2, 4),
+            ),
+          ],
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
